@@ -6,19 +6,14 @@ using System.Threading.Tasks;
 
 namespace MusicGame
 {
-    public class User
+    public class ActiveUser
     {
-        
         public int UserId { get; set; }
-        public string UserName { get; set; }
         public int Score { get; set; }
-        public User(int id, string user, int score)
+        public ActiveUser(int user, int score)
         {
-            UserId = id;
-            UserName = user;
+            UserId = user;
             Score = score;
         }
-
-
     }
 }
