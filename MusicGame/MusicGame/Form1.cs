@@ -24,7 +24,7 @@ namespace MusicGame
         private void Form1_Load(object sender, EventArgs e)
         {
            
-            SqlConnection connection = new SqlConnection("metadata = res://*/MusicDb.csdl|res://*/MusicDb.ssdl|res://*/MusicDb.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\DataBase.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;");
+            SqlConnection connection = new SqlConnection("metadata = res://*/MusicDb.csdl|res://*/MusicDb.ssdl|res://*/MusicDb.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\\MSSQLLocalDB;attachdbfilename=|DataDirectory|\\DataBase.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;");
             connection.Open();
             SqlCommand command = new SqlCommand("SELECT * FROM User",connection);
 
