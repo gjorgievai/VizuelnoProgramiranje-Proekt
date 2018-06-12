@@ -8,12 +8,11 @@ namespace MusicGame
 {
     public class ActiveUser
     {
-        public int UserId { get; set; }
-        public int Score { get; set; }
-        public ActiveUser(int user, int score)
+        public User user{ get; set; }
+      
+        public ActiveUser(User user1)
         {
-            UserId = user;
-            Score = score;
+            user = user1;
         }
     }
 }

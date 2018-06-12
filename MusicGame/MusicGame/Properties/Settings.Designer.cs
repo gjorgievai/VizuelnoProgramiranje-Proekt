@@ -26,11 +26,11 @@ namespace MusicGame.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\User\\VizuelnoProgram" +
-            "iranje-Proekt\\MusicGame\\MusicGame\\DataBase.mdf;Integrated Security=True")]
-        public string connString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DataBase.mdf;" +
+            "Integrated Security=True")]
+        public string DataBaseConnectionString {
             get {
-                return ((string)(this["connString"]));
+                return ((string)(this["DataBaseConnectionString"]));
             }
         }
     }
