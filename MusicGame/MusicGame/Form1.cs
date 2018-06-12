@@ -23,21 +23,28 @@ namespace MusicGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
-            SqlConnection connection = new SqlConnection("metadata = res://*/MusicDb.csdl|res://*/MusicDb.ssdl|res://*/MusicDb.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\\MSSQLLocalDB;attachdbfilename=|DataDirectory|\\DataBase.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;");
-            connection.Open();
-            SqlCommand command = new SqlCommand("SELECT * FROM User",connection);
-
-            SqlDataReader reader = command.ExecuteReader();
-            if(reader.HasRows)
+            string stringConnection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DataBase.mdf;Integrated Security=True";
+            using (SqlConnection connection = new SqlConnection(stringConnection))
             {
-                while (reader.Read())
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT * FROM User WHERE UserName=@kajtazovai ", connection))
                 {
-                    user.UserName = reader.GetString(1);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            int id = (int)reader["Id"];
+                            lblUserName.Text = id.ToString();
+                        }
+                    }
+
                 }
 
             }
-            lblUserName.Text = user.UserName;
+                lblUserName.Text = user.UserName;
+
         }
     }
 }
