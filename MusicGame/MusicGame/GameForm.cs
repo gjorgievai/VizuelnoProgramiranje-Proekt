@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,19 @@ namespace MusicGame
     {
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         Random r = new Random();
-
+        public Song song;
+        public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
+        public SqlCommand command = new SqlCommand();
+        DataSet dataSet = new DataSet();
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        List<Song> songs { get; set; }
         public string currentSongPlaying { get; set; }
         public List<string> btnNames { get; set; }
         public List<string> usedNames;
         int points = 0;
+        public int seconds = 30;
+        public int minutes = 2;
+        public int misses = 0;
 
 
         public GameForm()
@@ -30,6 +39,7 @@ namespace MusicGame
             "Master Blaster (Jammin')"};
             usedNames = new List<string>();
             InitializeComponent();
+            songs = new List<Song>();
             //Check Commit and Push - Ana!
         }
 
@@ -38,16 +48,30 @@ namespace MusicGame
             playSong();
             refreshButtonNames();
             timer.Tick += new EventHandler(timer_Tick);
+           
 
         }
 
         public void playSong()
         {
-            var songs = new List<string> { "You.mp3", "Inner City Blues.mp3", "Trouble Man.mp3",
-            "Superstition.mp3", "Sir Duke.mp3", "I Wish.mp3", "Signed, Sealed, Delivered I'm Yours.mp3",
-            "Boogie on Reggae Woman.mp3", "For Once in My Life.mp3", "Living for the City.mp3", "Master Blaster (Jammin').mp3"};
+            adapter.SelectCommand = new SqlCommand("SELECT * FROM [Song]", connection);
+            adapter.Fill(dataSet);
+
+            datagrid.DataSource = dataSet.Tables[0];
+            for (int i = 0; i < datagrid.Rows.Count - 1; i++)
+            {
+
+
+                int id = Int32.Parse(datagrid.Rows[i].Cells[0].Value.ToString());
+                string name = datagrid.Rows[i].Cells[1].Value.ToString();
+                string artist = datagrid.Rows[i].Cells[3].Value.ToString();
+                int year = Int32.Parse(datagrid.Rows[i].Cells[2].Value.ToString());
+                song = new Song(id, name, year, artist);
+                songs.Add(song);
+
+            }
             int index = r.Next(songs.Count);
-            currentSongPlaying = songs[index];
+            currentSongPlaying = songs[index].NameSong;
             player.URL = currentSongPlaying;
         }
 
@@ -124,6 +148,7 @@ namespace MusicGame
             }
             else
             {
+                misses++;
                 b.Text = "";
             }
         }
@@ -170,22 +195,50 @@ namespace MusicGame
             if (pbGuessSongTime.Value < 30)
             {
                 points += 20;
-                pbPoints.Value = points;
+                if (points <= 100)
+                {
+                    pbPoints.Value = points;
+                }
+                else {
+                    timer.Stop();
+                    MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
+                    Close();
+                }
+                
 
             }
             else if (pbGuessSongTime.Value > 30 && pbGuessSongTime.Value < 65)
             {
                 points += 10;
-                pbPoints.Value = points;
+                if (points <= 100)
+                {
+                    pbPoints.Value = points;
+                }
+                else
+                {
+                    timer.Stop();
+                    MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
+                    Close();
+                }
             }
             else if (pbGuessSongTime.Value > 65 && pbGuessSongTime.Value < 100)
             {
                 points += 3;
-                pbPoints.Value = points;
+                if (points <= 100)
+                {
+                    pbPoints.Value = points;
+                }
+                else
+                {
+                    timer.Stop();
+                    MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
+                    Close();
+                }
             }
 
             else if (pbGuessSongTime.Value == 100)
             {
+                timer.Stop();
                 points -= 15;
                 pbPoints.Value = points;
             }
@@ -201,6 +254,44 @@ namespace MusicGame
             {
                 refreshGame();
             }
+            if (misses == 10)
+            {
+                timer.Stop();
+                MessageBox.Show("You misses 10 songs!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
+                Close();
+            }
+            if (seconds > 0 || minutes > 0)
+            {
+                CheckTimer();
+                
+            }
+            else
+            {
+                timer.Stop();
+            }
+            
         }
+        public void CheckTimer()
+        {
+            if (seconds > 0)
+            {
+                seconds--;
+                label1.Text = string.Format("0{0}:{1}", minutes, seconds);
+                if(seconds==0 && minutes == 0)
+                {
+                    MessageBox.Show("TIME'S UP!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
+                    
+                    Close();
+                }
+
+            }
+            else
+            {
+                minutes--;
+                seconds = 60;
+            }
+        }
+
+       
     }
 }

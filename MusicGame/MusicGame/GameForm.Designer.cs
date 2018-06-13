@@ -127,6 +127,7 @@
             this.datagrid.Name = "datagrid";
             this.datagrid.Size = new System.Drawing.Size(84, 53);
             this.datagrid.TabIndex = 9;
+            this.datagrid.Visible = false;
             // 
             // timer
             // 
@@ -148,7 +149,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "GameForm";
-            this.Text = "Form1";
+            this.Text = "MusicGame";
             this.Load += new System.EventHandler(this.GameForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).EndInit();
             this.ResumeLayout(false);
