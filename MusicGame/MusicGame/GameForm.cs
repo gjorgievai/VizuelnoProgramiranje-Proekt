@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,16 +15,12 @@ namespace MusicGame
     {
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         Random r = new Random();
-        public Song song;
-        public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
-        public SqlCommand command = new SqlCommand();
-        DataSet dataSet = new DataSet();
-        SqlDataAdapter adapter = new SqlDataAdapter();
-        List<Song> songs { get; set; }
-        public string currentSongPlaying { get; private set; }
-        public List<string> btnNames{ get; set; }
-        public List<string> usedNames { get; set; }
-       
+
+        public string currentSongPlaying { get; set; }
+        public List<string> btnNames { get; set; }
+        public List<string> usedNames;
+        int points = 0;
+
 
         public GameForm()
         {
@@ -35,8 +30,6 @@ namespace MusicGame
             "Master Blaster (Jammin')"};
             usedNames = new List<string>();
             InitializeComponent();
-            songs = new List<Song>();
-            usedNames = new List<string>();
             //Check Commit and Push - Ana!
         }
 
@@ -44,27 +37,8 @@ namespace MusicGame
         {
             playSong();
             refreshButtonNames();
-            if (usedNames.Count > 0)
-            {
-                foreach (string s in usedNames)
-                {
-                    usedNames.Remove(s);
-                    btnNames.Add(s);
-                }
-            }
-            adapter.SelectCommand = new SqlCommand("SELECT * FROM [Song]", connection);
-            adapter.Fill(dataSet);
-            datagrid.DataSource = dataSet.Tables[0];
-            for (int i = 0; i < datagrid.Rows.Count - 1; i++)
-            {
+            timer.Tick += new EventHandler(timer_Tick);
 
-
-                int id = Int32.Parse(datagrid.Rows[i].Cells[0].Value.ToString());
-                string name = datagrid.Rows[i].Cells[1].Value.ToString();
-                string artist = datagrid.Rows[i].Cells[2].Value.ToString();
-                int year = Int32.Parse(datagrid.Rows[i].Cells[3].Value.ToString());
-                song = new Song(id, name, year, artist);
-            
         }
 
         public void playSong()
@@ -79,7 +53,7 @@ namespace MusicGame
 
         private void clearButtons()
         {
-            foreach(Button b in this.Controls.OfType<Button>())
+            foreach (Button b in this.Controls.OfType<Button>())
             {
                 b.Text = "";
             }
@@ -94,12 +68,12 @@ namespace MusicGame
             string btnCorrectAnswerName = "button" + index.ToString();
             btnCorrectAnswer.Name = btnCorrectAnswerName;
 
-            if(usedNames.Count>0)
+            if (usedNames.Count > 0)
             {
-                    foreach(string s in usedNames)
-                    {
-                        btnNames.Add(s);
-                    }
+                foreach (string s in usedNames)
+                {
+                    btnNames.Add(s);
+                }
 
                 usedNames.Clear();
             }
@@ -108,7 +82,7 @@ namespace MusicGame
 
             foreach (Button b in this.Controls.OfType<Button>())
             {
-               
+
                 if (btnCorrectAnswer.Name != b.Name)
                 {
                     b.Text = nameRandom();
@@ -123,23 +97,6 @@ namespace MusicGame
 
         public string nameRandom()
         {
-            if(flag)
-            {
-                int j = r.Next(0, btnNames.Count);
-                string Name = btnNames[j];
-                btnNames.Remove(Name);
-                usedNames.Add(Name);
-               if (usedNames.Count > 0)
-                {
-                    foreach (string s in usedNames.ToList())
-                    {
-                        usedNames.Remove(s);
-                        btnNames.Add(s);
-                    }
-                }
-                return Name;
-            }
-            int i = r.Next(0, btnNames.Count);
             int i = r.Next(btnNames.Count);
             string name = btnNames[i];
             btnNames.Remove(name);
@@ -151,6 +108,8 @@ namespace MusicGame
         {
             playSong();
             refreshButtonNames();
+            pbGuessSongTime.Value = 0;
+            pbGuessSongTime.Maximum = 100;
         }
 
 
@@ -159,8 +118,8 @@ namespace MusicGame
             string songPlaying = currentSongPlaying.Substring(0, currentSongPlaying.Length - 4);
             if (songPlaying.Equals(btnSong))
             {
+                updatePoints();
                 player.controls.stop();
-                //refreshButtonNames();
                 refreshGame();
             }
             else
@@ -203,6 +162,45 @@ namespace MusicGame
         {
             guessSong(currentSongPlaying, this.button6.Text, button6);
 
+        }
+
+        private void updatePoints()
+        {
+
+            if (pbGuessSongTime.Value < 30)
+            {
+                points += 20;
+                pbPoints.Value = points;
+
+            }
+            else if (pbGuessSongTime.Value > 30 && pbGuessSongTime.Value < 65)
+            {
+                points += 10;
+                pbPoints.Value = points;
+            }
+            else if (pbGuessSongTime.Value > 65 && pbGuessSongTime.Value < 100)
+            {
+                points += 3;
+                pbPoints.Value = points;
+            }
+
+            else if (pbGuessSongTime.Value == 100)
+            {
+                points -= 15;
+                pbPoints.Value = points;
+            }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (pbGuessSongTime.Value != 100)
+            {
+                pbGuessSongTime.Value++;
+            }
+            if (pbGuessSongTime.Value == 100)
+            {
+                refreshGame();
+            }
         }
     }
 }
