@@ -29,7 +29,8 @@ namespace MusicGame
         public int seconds = 30;
         public int minutes = 2;
         public int misses = 0;
-
+        public int levels = 1;
+        public int hits = 0;
 
         public GameForm()
         {
@@ -40,6 +41,7 @@ namespace MusicGame
             usedNames = new List<string>();
             InitializeComponent();
             songs = new List<Song>();
+            lblLevel.Text = string.Format("Level:{0}", levels);
             //Check Commit and Push - Ana!
         }
 
@@ -142,6 +144,11 @@ namespace MusicGame
             string songPlaying = currentSongPlaying.Substring(0, currentSongPlaying.Length - 4);
             if (songPlaying.Equals(btnSong))
             {
+                hits++;
+                if(hits==10)
+                {
+                    levels++;
+                }
                 updatePoints();
                 player.controls.stop();
                 refreshGame();

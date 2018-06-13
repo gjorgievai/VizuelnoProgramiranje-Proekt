@@ -40,6 +40,7 @@
             this.pbPoints = new System.Windows.Forms.ProgressBar();
             this.datagrid = new System.Windows.Forms.DataGridView();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.lblLevel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,12 +133,23 @@
             // timer
             // 
             this.timer.Enabled = true;
+            this.timer.Interval = 1000;
+            // 
+            // lblLevel
+            // 
+            this.lblLevel.AutoSize = true;
+            this.lblLevel.Location = new System.Drawing.Point(512, 50);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(36, 13);
+            this.lblLevel.TabIndex = 10;
+            this.lblLevel.Text = "Level:";
             // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 439);
+            this.Controls.Add(this.lblLevel);
             this.Controls.Add(this.datagrid);
             this.Controls.Add(this.pbPoints);
             this.Controls.Add(this.label1);
@@ -170,6 +182,7 @@
         private System.Windows.Forms.ProgressBar pbPoints;
         private System.Windows.Forms.DataGridView datagrid;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label lblLevel;
     }
 }
 
