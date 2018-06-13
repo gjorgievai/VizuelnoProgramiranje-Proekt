@@ -37,7 +37,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lblUserName = new System.Windows.Forms.Label();
             this.datagrid = new System.Windows.Forms.DataGridView();
-            this.lbSongs = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,20 +118,11 @@
             this.datagrid.TabIndex = 8;
             this.datagrid.Visible = false;
             // 
-            // lbSongs
-            // 
-            this.lbSongs.FormattingEnabled = true;
-            this.lbSongs.Location = new System.Drawing.Point(451, 47);
-            this.lbSongs.Name = "lbSongs";
-            this.lbSongs.Size = new System.Drawing.Size(120, 95);
-            this.lbSongs.TabIndex = 9;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 402);
-            this.Controls.Add(this.lbSongs);
             this.Controls.Add(this.datagrid);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.progressBar1);
@@ -162,7 +152,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.DataGridView datagrid;
-        private System.Windows.Forms.ListBox lbSongs;
     }
 }
 
