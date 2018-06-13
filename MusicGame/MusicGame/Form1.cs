@@ -23,27 +23,7 @@ namespace MusicGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string stringConnection = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DataBase.mdf;Integrated Security=True";
-            using (SqlConnection connection = new SqlConnection(stringConnection))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT * FROM User WHERE UserName=@kajtazovai ", connection))
-                {
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-
-                            int id = (int)reader["Id"];
-                            lblUserName.Text = id.ToString();
-                        }
-                    }
-
-                }
-
-            }
-                lblUserName.Text = user.UserName;
+            lblUserName.Text = "user1";
 
         }
     }
