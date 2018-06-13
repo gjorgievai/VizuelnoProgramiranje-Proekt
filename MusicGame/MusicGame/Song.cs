@@ -10,13 +10,15 @@ namespace MusicGame
     {
         public int SongId { get; set; }
         public string NameSong { get; set; }
-        public int YearSong { get; set; }
+        public int Year { get; set; }
+        public string Artist { get; set; }
 
-        public Song(int id, string name, int year)
+        public Song(int id, string name, int year ,string artist)
         {
             SongId = id;
             NameSong = name;
-            YearSong = year;
+            Year = year;
+            Artist = artist;
         }
     }
 }
