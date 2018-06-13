@@ -74,10 +74,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MusicDbDataSet.Designer.cs">
+    <Compile Include="MusicDataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MusicDbDataSet.xsd</DependentUpon>
+      <DependentUpon>MusicDataDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,16 +95,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="MusicDbDataSet.xsc">
-      <DependentUpon>MusicDbDataSet.xsd</DependentUpon>
+    <None Include="MusicDataDataSet.xsc">
+      <DependentUpon>MusicDataDataSet.xsd</DependentUpon>
     </None>
-    <None Include="MusicDbDataSet.xsd">
+    <None Include="MusicDataDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MusicDbDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>MusicDataDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="MusicDbDataSet.xss">
-      <DependentUpon>MusicDbDataSet.xsd</DependentUpon>
+    <None Include="MusicDataDataSet.xss">
+      <DependentUpon>MusicDataDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -133,12 +133,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MusicDb.mdf">
+    <Content Include="MusicData.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MusicDb_log.ldf">
+    <Content Include="MusicData_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>MusicDb.mdf</DependentUpon>
+      <DependentUpon>MusicData.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

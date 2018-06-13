@@ -112,10 +112,11 @@
             // datagrid
             // 
             this.datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagrid.Location = new System.Drawing.Point(342, 57);
+            this.datagrid.Location = new System.Drawing.Point(12, 12);
             this.datagrid.Name = "datagrid";
-            this.datagrid.Size = new System.Drawing.Size(240, 150);
+            this.datagrid.Size = new System.Drawing.Size(94, 32);
             this.datagrid.TabIndex = 8;
+            this.datagrid.Visible = false;
             // 
             // Form1
             // 
