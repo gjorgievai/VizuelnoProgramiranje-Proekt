@@ -43,7 +43,7 @@ namespace MusicGame
                     string artist = datagrid.Rows[i].Cells[2].Value.ToString();
                     int year = Int32.Parse(datagrid.Rows[i].Cells[3].Value.ToString());
                     song = new Song(id, name, year, artist);
-                    lbSongs.Items.Add(song.NameSong);
+                   
                     
                 
             }
