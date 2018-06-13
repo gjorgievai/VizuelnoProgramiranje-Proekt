@@ -29,11 +29,11 @@ namespace MusicGame
 
         public GameForm()
         {
-            //playSong();
             btnNames = new List<string> { "You", "Inner City Blues", "Trouble Man",
-            "I Wish", "Think", "Don't you worry 'bout a thing", "Myenemy", "Smooth Operaton",
-            "Sweetest Taboo", "Clouds"};
-            usedNames = btnNames;
+            "I Wish", "Sir Duke", "Superstition", "Signed, Sealed, Delivered I'm Yours",
+                "Boogie on Reggae Woman","For Once in My Life", "Living for the City",
+            "Master Blaster (Jammin')"};
+            usedNames = new List<string>();
             InitializeComponent();
             songs = new List<Song>();
             usedNames = new List<string>();
@@ -64,13 +64,14 @@ namespace MusicGame
                 string artist = datagrid.Rows[i].Cells[2].Value.ToString();
                 int year = Int32.Parse(datagrid.Rows[i].Cells[3].Value.ToString());
                 song = new Song(id, name, year, artist);
-                
-            }
+            
         }
 
-        private void playSong()
+        public void playSong()
         {
-            var songs = new List<string> { "You.mp3", "Inner City Blues.mp3", "Trouble Man.mp3" };
+            var songs = new List<string> { "You.mp3", "Inner City Blues.mp3", "Trouble Man.mp3",
+            "Superstition.mp3", "Sir Duke.mp3", "I Wish.mp3", "Signed, Sealed, Delivered I'm Yours.mp3",
+            "Boogie on Reggae Woman.mp3", "For Once in My Life.mp3", "Living for the City.mp3", "Master Blaster (Jammin').mp3"};
             int index = r.Next(songs.Count);
             currentSongPlaying = songs[index];
             player.URL = currentSongPlaying;
@@ -92,37 +93,35 @@ namespace MusicGame
             int index = r.Next(1, 6);
             string btnCorrectAnswerName = "button" + index.ToString();
             btnCorrectAnswer.Name = btnCorrectAnswerName;
+
+            if(usedNames.Count>0)
+            {
+                    foreach(string s in usedNames)
+                    {
+                        btnNames.Add(s);
+                    }
+
+                usedNames.Clear();
+            }
             btnNames.Remove(btnCorrectAnswer.Text);
             usedNames.Add(btnCorrectAnswer.Text);
-            int counter = 0;
-            bool flag = true;
 
             foreach (Button b in this.Controls.OfType<Button>())
             {
-                counter++;
-                
+               
                 if (btnCorrectAnswer.Name != b.Name)
                 {
-                    if (counter == 6)
-                    {
-                        b.Text = nameRandom(flag);
-                    }
-                    else
-                    {
-                        b.Text = nameRandom(!flag);
-                    }
-                        
-                   
+                    b.Text = nameRandom();
                 }
                 else if (btnCorrectAnswer.Name == b.Name)
                 {
                     b.Text = btnCorrectAnswer.Text;
                 }
             }
-            playSong();
+            //playSong();
         }
 
-        public string nameRandom(bool flag)
+        public string nameRandom()
         {
             if(flag)
             {
@@ -141,10 +140,17 @@ namespace MusicGame
                 return Name;
             }
             int i = r.Next(0, btnNames.Count);
+            int i = r.Next(btnNames.Count);
             string name = btnNames[i];
             btnNames.Remove(name);
             usedNames.Add(name);
             return name;
+        }
+
+        private void refreshGame()
+        {
+            playSong();
+            refreshButtonNames();
         }
 
 
@@ -154,7 +160,8 @@ namespace MusicGame
             if (songPlaying.Equals(btnSong))
             {
                 player.controls.stop();
-                refreshButtonNames();
+                //refreshButtonNames();
+                refreshGame();
             }
             else
             {
@@ -197,9 +204,5 @@ namespace MusicGame
             guessSong(currentSongPlaying, this.button6.Text, button6);
 
         }
-
-        
-
-
     }
 }
