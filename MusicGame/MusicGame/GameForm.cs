@@ -17,7 +17,7 @@ namespace MusicGame
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         Random r = new Random();
         public Song song;
-        public SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\MusicData.mdf;Integrated Security=True");
+        public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
         public SqlCommand command = new SqlCommand();
         DataSet dataSet = new DataSet();
         SqlDataAdapter adapter = new SqlDataAdapter();
