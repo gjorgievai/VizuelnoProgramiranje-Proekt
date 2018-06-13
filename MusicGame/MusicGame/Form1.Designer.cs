@@ -36,6 +36,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.datagrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -107,11 +109,20 @@
             this.lblUserName.Size = new System.Drawing.Size(0, 13);
             this.lblUserName.TabIndex = 7;
             // 
+            // datagrid
+            // 
+            this.datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagrid.Location = new System.Drawing.Point(342, 57);
+            this.datagrid.Name = "datagrid";
+            this.datagrid.Size = new System.Drawing.Size(240, 150);
+            this.datagrid.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 402);
+            this.Controls.Add(this.datagrid);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button6);
@@ -123,6 +134,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,6 +150,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.DataGridView datagrid;
     }
 }
 
