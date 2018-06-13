@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,15 @@ namespace MusicGame
     {
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         Random r = new Random();
-
+        public Song song;
+        public SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\MusicData.mdf;Integrated Security=True");
+        public SqlCommand command = new SqlCommand();
+        DataSet dataSet = new DataSet();
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        List<Song> songs { get; set; }
         public string currentSongPlaying { get; private set; }
         public List<string> btnNames{ get; set; }
-        public List<string> usedNames = new List<string>();
+        public List<string> usedNames { get; set; }
        
 
         public GameForm()
@@ -29,6 +35,8 @@ namespace MusicGame
             "Sweetest Taboo", "Clouds"};
             usedNames = btnNames;
             InitializeComponent();
+            songs = new List<Song>();
+            usedNames = new List<string>();
             //Check Commit and Push - Ana!
         }
 
@@ -38,11 +46,25 @@ namespace MusicGame
             refreshButtonNames();
             if (usedNames.Count > 0)
             {
-                foreach (String s in usedNames)
+                foreach (string s in usedNames)
                 {
                     usedNames.Remove(s);
                     btnNames.Add(s);
                 }
+            }
+            adapter.SelectCommand = new SqlCommand("SELECT * FROM [Song]", connection);
+            adapter.Fill(dataSet);
+            datagrid.DataSource = dataSet.Tables[0];
+            for (int i = 0; i < datagrid.Rows.Count - 1; i++)
+            {
+
+
+                int id = Int32.Parse(datagrid.Rows[i].Cells[0].Value.ToString());
+                string name = datagrid.Rows[i].Cells[1].Value.ToString();
+                string artist = datagrid.Rows[i].Cells[2].Value.ToString();
+                int year = Int32.Parse(datagrid.Rows[i].Cells[3].Value.ToString());
+                song = new Song(id, name, year, artist);
+                
             }
         }
 
@@ -108,9 +130,9 @@ namespace MusicGame
                 string Name = btnNames[j];
                 btnNames.Remove(Name);
                 usedNames.Add(Name);
-                if (usedNames.Count > 0)
+               if (usedNames.Count > 0)
                 {
-                    foreach (String s in usedNames)
+                    foreach (string s in usedNames.ToList())
                     {
                         usedNames.Remove(s);
                         btnNames.Add(s);

@@ -37,6 +37,8 @@
             this.pbGuessSongTime = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.pbPoints = new System.Windows.Forms.ProgressBar();
+            this.datagrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -116,11 +118,20 @@
             this.pbPoints.Size = new System.Drawing.Size(431, 32);
             this.pbPoints.TabIndex = 8;
             // 
+            // datagrid
+            // 
+            this.datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagrid.Location = new System.Drawing.Point(22, 28);
+            this.datagrid.Name = "datagrid";
+            this.datagrid.Size = new System.Drawing.Size(84, 53);
+            this.datagrid.TabIndex = 9;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 439);
+            this.Controls.Add(this.datagrid);
             this.Controls.Add(this.pbPoints);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbGuessSongTime);
@@ -133,6 +144,7 @@
             this.Name = "GameForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.GameForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,6 +161,7 @@
         private System.Windows.Forms.ProgressBar pbGuessSongTime;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar pbPoints;
+        private System.Windows.Forms.DataGridView datagrid;
     }
 }
 
