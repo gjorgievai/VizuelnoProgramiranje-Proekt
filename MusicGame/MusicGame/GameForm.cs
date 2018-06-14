@@ -67,22 +67,7 @@ namespace MusicGame
 
         public void playSong()
         {
-            adapter.SelectCommand = new SqlCommand("SELECT * FROM [Song]", connection);
-            adapter.Fill(dataSet);
-
-            datagrid.DataSource = dataSet.Tables[0];
-            for (int i = 0; i < datagrid.Rows.Count - 1; i++)
-            {
-
-
-                int id = Int32.Parse(datagrid.Rows[i].Cells[0].Value.ToString());
-                string name = datagrid.Rows[i].Cells[1].Value.ToString();
-                string artist = datagrid.Rows[i].Cells[3].Value.ToString();
-                int year = Int32.Parse(datagrid.Rows[i].Cells[2].Value.ToString());
-                song = new Song(id, name, year, artist);
-                songs.Add(song);
-
-            }
+            DataBind();
             int index = r.Next(songs.Count);
             currentSongPlaying = songs[index].NameSong;
             player.URL = currentSongPlaying;
@@ -160,6 +145,7 @@ namespace MusicGame
                 {
                     levels++;
                 }
+
                 updatePoints();
                 player.controls.stop();
                 refreshGame();
@@ -221,6 +207,7 @@ namespace MusicGame
                     timer.Stop();
                     login.ActiveUser.User.Score = points;
                     lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
                 }
@@ -254,6 +241,7 @@ namespace MusicGame
                 {
                     timer.Stop();
                     login.ActiveUser.User.Score = points;
+                    
                     lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
@@ -266,6 +254,8 @@ namespace MusicGame
                 points -= 15;
                 pbPoints.Value = points;
             }
+            lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -317,6 +307,25 @@ namespace MusicGame
             {
                 minutes--;
                 seconds = 60;
+            }
+        }
+        public void DataBind()
+        {
+            adapter.SelectCommand = new SqlCommand("SELECT * FROM [Song]", connection);
+            adapter.Fill(dataSet);
+
+            datagrid.DataSource = dataSet.Tables[0];
+            for (int i = 0; i < datagrid.Rows.Count - 1; i++)
+            {
+
+
+                int id = Int32.Parse(datagrid.Rows[i].Cells[0].Value.ToString());
+                string name = datagrid.Rows[i].Cells[1].Value.ToString();
+                string artist = datagrid.Rows[i].Cells[3].Value.ToString();
+                int year = Int32.Parse(datagrid.Rows[i].Cells[2].Value.ToString());
+                song = new Song(id, name, year, artist);
+                songs.Add(song);
+
             }
         }
 
