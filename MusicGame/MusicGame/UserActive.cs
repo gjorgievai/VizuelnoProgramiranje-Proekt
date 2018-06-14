@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace MusicGame
 {
-    public class ActiveUser
+    public class UserActive
     {
-        public User user{ get; set; }
-      
-        public ActiveUser(User user1)
+       public User User { get; set; }
+        public UserActive(User user)
         {
-            user = user1;
+            User = user;
         }
     }
 }

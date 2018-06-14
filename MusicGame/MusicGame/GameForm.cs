@@ -16,6 +16,8 @@ namespace MusicGame
     {
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         Random r = new Random();
+        Login login = new Login();
+       
         public Song song;
         public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
         public SqlCommand command = new SqlCommand();
@@ -34,6 +36,7 @@ namespace MusicGame
 
         public GameForm()
         {
+            
             btnNames = new List<string> { "You", "Inner City Blues", "Trouble Man",
             "I Wish", "Sir Duke", "Superstition", "Signed, Sealed, Delivered I'm Yours",
                 "Boogie on Reggae Woman","For Once in My Life", "Living for the City",
@@ -47,9 +50,12 @@ namespace MusicGame
 
         private void GameForm_Load(object sender, EventArgs e)
         {
-            playSong();
-            refreshButtonNames();
-            timer.Tick += new EventHandler(timer_Tick);
+            if (login.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                playSong();
+                refreshButtonNames();
+                timer.Tick += new EventHandler(timer_Tick);
+            }
            
 
         }
