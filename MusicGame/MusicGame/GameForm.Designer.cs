@@ -43,6 +43,9 @@
             this.lblLevel = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
             this.lbScore = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblPoeni = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,6 +122,7 @@
             // pbPoints
             // 
             this.pbPoints.Location = new System.Drawing.Point(78, 395);
+            this.pbPoints.Maximum = 1000;
             this.pbPoints.Name = "pbPoints";
             this.pbPoints.Size = new System.Drawing.Size(431, 32);
             this.pbPoints.TabIndex = 8;
@@ -164,11 +168,40 @@
             this.lbScore.TabIndex = 12;
             this.lbScore.Text = "Score:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 350);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Time:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(39, 404);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Points:";
+            // 
+            // lblPoeni
+            // 
+            this.lblPoeni.AutoSize = true;
+            this.lblPoeni.Location = new System.Drawing.Point(515, 404);
+            this.lblPoeni.Name = "lblPoeni";
+            this.lblPoeni.Size = new System.Drawing.Size(0, 13);
+            this.lblPoeni.TabIndex = 15;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 439);
+            this.Controls.Add(this.lblPoeni);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lbScore);
             this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.lblLevel);
@@ -207,6 +240,9 @@
         private System.Windows.Forms.Label lblLevel;
         private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.Label lbScore;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPoeni;
     }
 }
 

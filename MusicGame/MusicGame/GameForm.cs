@@ -255,7 +255,7 @@ namespace MusicGame
                 pbPoints.Value = points;
             }
             lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
-
+            lblPoeni.Text = points.ToString();
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -270,6 +270,7 @@ namespace MusicGame
             }
             if (misses == 10)
             {
+                lblPoeni.Text = points.ToString();
                 timer.Stop();
                 login.ActiveUser.User.Score = points;
                 lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
