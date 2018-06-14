@@ -46,7 +46,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblPoeni = new System.Windows.Forms.Label();
+            this.datagrid1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -194,11 +196,21 @@
             this.lblPoeni.Size = new System.Drawing.Size(0, 13);
             this.lblPoeni.TabIndex = 15;
             // 
+            // datagrid1
+            // 
+            this.datagrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagrid1.Location = new System.Drawing.Point(22, 115);
+            this.datagrid1.Name = "datagrid1";
+            this.datagrid1.Size = new System.Drawing.Size(84, 63);
+            this.datagrid1.TabIndex = 16;
+            this.datagrid1.Visible = false;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 439);
+            this.Controls.Add(this.datagrid1);
             this.Controls.Add(this.lblPoeni);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -219,6 +231,7 @@
             this.Text = "MusicGame";
             this.Load += new System.EventHandler(this.GameForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagrid1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,6 +256,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPoeni;
+        private System.Windows.Forms.DataGridView datagrid1;
     }
 }
 

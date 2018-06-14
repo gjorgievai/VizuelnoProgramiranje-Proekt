@@ -17,7 +17,7 @@ namespace MusicGame
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         Random r = new Random();
         Login login = new Login();
-       
+        User activeUser { get; set; }
         public Song song;
         public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
         public SqlCommand command = new SqlCommand();
@@ -296,6 +296,9 @@ namespace MusicGame
                 label1.Text = string.Format("0{0}:{1}", minutes, seconds);
                 if(seconds==0 && minutes == 0)
                 {
+                   
+
+
                     login.ActiveUser.User.Score = points;
                     lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                     MessageBox.Show("TIME'S UP!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
@@ -328,6 +331,8 @@ namespace MusicGame
                 songs.Add(song);
 
             }
+           
+
         }
 
        
