@@ -45,13 +45,18 @@ namespace MusicGame
             InitializeComponent();
             songs = new List<Song>();
             lblLevel.Text = string.Format("Level:{0}", levels);
-            //Check Commit and Push - Ana!
+            Login login = new Login();
+            
+                //Check Commit and Push - Ana!
         }
 
         private void GameForm_Load(object sender, EventArgs e)
         {
+            
             if (login.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                lbUsername.Text = string.Format("Username:{0}", login.ActiveUser.User.UserName);
+                lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                 playSong();
                 refreshButtonNames();
                 timer.Tick += new EventHandler(timer_Tick);
@@ -214,6 +219,8 @@ namespace MusicGame
                 }
                 else {
                     timer.Stop();
+                    login.ActiveUser.User.Score = points;
+                    lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
                 }
@@ -230,6 +237,8 @@ namespace MusicGame
                 else
                 {
                     timer.Stop();
+                    login.ActiveUser.User.Score = points;
+                    lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
                 }
@@ -244,6 +253,8 @@ namespace MusicGame
                 else
                 {
                     timer.Stop();
+                    login.ActiveUser.User.Score = points;
+                    lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
                 }
@@ -270,6 +281,8 @@ namespace MusicGame
             if (misses == 10)
             {
                 timer.Stop();
+                login.ActiveUser.User.Score = points;
+                lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                 MessageBox.Show("You misses 10 songs!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
                 Close();
             }
@@ -292,6 +305,8 @@ namespace MusicGame
                 label1.Text = string.Format("0{0}:{1}", minutes, seconds);
                 if(seconds==0 && minutes == 0)
                 {
+                    login.ActiveUser.User.Score = points;
+                    lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                     MessageBox.Show("TIME'S UP!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
                     
                     Close();

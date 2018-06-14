@@ -41,6 +41,8 @@
             this.datagrid = new System.Windows.Forms.DataGridView();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.lblLevel = new System.Windows.Forms.Label();
+            this.lbUsername = new System.Windows.Forms.Label();
+            this.lbScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,11 +146,31 @@
             this.lblLevel.TabIndex = 10;
             this.lblLevel.Text = "Level:";
             // 
+            // lbUsername
+            // 
+            this.lbUsername.AutoSize = true;
+            this.lbUsername.Location = new System.Drawing.Point(451, 68);
+            this.lbUsername.Name = "lbUsername";
+            this.lbUsername.Size = new System.Drawing.Size(58, 13);
+            this.lbUsername.TabIndex = 11;
+            this.lbUsername.Text = "Username:";
+            // 
+            // lbScore
+            // 
+            this.lbScore.AutoSize = true;
+            this.lbScore.Location = new System.Drawing.Point(454, 87);
+            this.lbScore.Name = "lbScore";
+            this.lbScore.Size = new System.Drawing.Size(38, 13);
+            this.lbScore.TabIndex = 12;
+            this.lbScore.Text = "Score:";
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 439);
+            this.Controls.Add(this.lbScore);
+            this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.lblLevel);
             this.Controls.Add(this.datagrid);
             this.Controls.Add(this.pbPoints);
@@ -183,6 +205,8 @@
         private System.Windows.Forms.DataGridView datagrid;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label lblLevel;
+        private System.Windows.Forms.Label lbUsername;
+        private System.Windows.Forms.Label lbScore;
     }
 }
 

@@ -17,7 +17,7 @@ namespace MusicGame
         public SqlCommand command = new SqlCommand();
         DataSet dataSet = new DataSet();
         SqlDataAdapter adapter = new SqlDataAdapter();
-        public UserActive user;
+        public UserActive ActiveUser;
         public List<User> users;
         public Login()
         {
@@ -46,6 +46,7 @@ namespace MusicGame
             {
                 if (user.UserName == tbUserName.Text)
                 {
+                    ActiveUser = new UserActive(user);
                     DialogResult = System.Windows.Forms.DialogResult.OK;
                     Close();
                 }
