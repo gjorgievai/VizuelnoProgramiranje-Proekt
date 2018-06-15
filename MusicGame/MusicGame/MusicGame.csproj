@@ -83,6 +83,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MusicDataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MusicDataDataSet1.cs">
+      <DependentUpon>MusicDataDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MusicDataDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

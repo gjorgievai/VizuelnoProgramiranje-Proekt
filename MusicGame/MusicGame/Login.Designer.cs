@@ -37,15 +37,17 @@
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(39, 57);
+            this.tbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbUserName.Location = new System.Drawing.Point(49, 54);
+            this.tbUserName.Multiline = true;
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(221, 20);
+            this.tbUserName.Size = new System.Drawing.Size(208, 33);
             this.tbUserName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 38);
+            this.label1.Location = new System.Drawing.Point(49, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
@@ -53,9 +55,9 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(39, 98);
+            this.btnLogin.Location = new System.Drawing.Point(113, 93);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(166, 23);
+            this.btnLogin.Size = new System.Drawing.Size(87, 32);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -74,7 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 166);
+            this.ClientSize = new System.Drawing.Size(312, 179);
             this.Controls.Add(this.datagridUser);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);

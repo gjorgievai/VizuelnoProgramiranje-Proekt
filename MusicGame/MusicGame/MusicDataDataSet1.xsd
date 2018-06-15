@@ -171,14 +171,14 @@ SELECT Id, UserName, Score FROM [User] WHERE (Id = @Id)</CommandText>
   <xs:element name="MusicDataDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MusicDataDataSet1" msprop:Generator_UserDSName="MusicDataDataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ActiveUser" msprop:Generator_TableClassName="ActiveUserDataTable" msprop:Generator_TableVarName="tableActiveUser" msprop:Generator_TablePropName="ActiveUser" msprop:Generator_RowDeletingName="ActiveUserRowDeleting" msprop:Generator_RowChangingName="ActiveUserRowChanging" msprop:Generator_RowEvHandlerName="ActiveUserRowChangeEventHandler" msprop:Generator_RowDeletedName="ActiveUserRowDeleted" msprop:Generator_UserTableName="ActiveUser" msprop:Generator_RowChangedName="ActiveUserRowChanged" msprop:Generator_RowEvArgName="ActiveUserRowChangeEvent" msprop:Generator_RowClassName="ActiveUserRow">
+        <xs:element name="ActiveUser" msprop:Generator_TableClassName="ActiveUserDataTable" msprop:Generator_TableVarName="tableActiveUser" msprop:Generator_RowChangedName="ActiveUserRowChanged" msprop:Generator_TablePropName="ActiveUser" msprop:Generator_RowDeletingName="ActiveUserRowDeleting" msprop:Generator_RowChangingName="ActiveUserRowChanging" msprop:Generator_RowEvHandlerName="ActiveUserRowChangeEventHandler" msprop:Generator_RowDeletedName="ActiveUserRowDeleted" msprop:Generator_RowClassName="ActiveUserRow" msprop:Generator_UserTableName="ActiveUser" msprop:Generator_RowEvArgName="ActiveUserRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Song" msprop:Generator_TableClassName="SongDataTable" msprop:Generator_TableVarName="tableSong" msprop:Generator_TablePropName="Song" msprop:Generator_RowDeletingName="SongRowDeleting" msprop:Generator_RowChangingName="SongRowChanging" msprop:Generator_RowEvHandlerName="SongRowChangeEventHandler" msprop:Generator_RowDeletedName="SongRowDeleted" msprop:Generator_UserTableName="Song" msprop:Generator_RowChangedName="SongRowChanged" msprop:Generator_RowEvArgName="SongRowChangeEvent" msprop:Generator_RowClassName="SongRow">
+        <xs:element name="Song" msprop:Generator_TableClassName="SongDataTable" msprop:Generator_TableVarName="tableSong" msprop:Generator_RowChangedName="SongRowChanged" msprop:Generator_TablePropName="Song" msprop:Generator_RowDeletingName="SongRowDeleting" msprop:Generator_RowChangingName="SongRowChanging" msprop:Generator_RowEvHandlerName="SongRowChangeEventHandler" msprop:Generator_RowDeletedName="SongRowDeleted" msprop:Generator_RowClassName="SongRow" msprop:Generator_UserTableName="Song" msprop:Generator_RowEvArgName="SongRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -200,7 +200,7 @@ SELECT Id, UserName, Score FROM [User] WHERE (Id = @Id)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_UserTableName="User" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_RowEvArgName="UserRowChangeEvent" msprop:Generator_RowClassName="UserRow">
+        <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_RowClassName="UserRow" msprop:Generator_UserTableName="User" msprop:Generator_RowEvArgName="UserRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -232,7 +232,7 @@ SELECT Id, UserName, Score FROM [User] WHERE (Id = @Id)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_ActiveUser_ToTable" msdata:parent="User" msdata:child="ActiveUser" msdata:parentkey="Id" msdata:childkey="Id" msprop:Generator_UserChildTable="ActiveUser" msprop:Generator_ChildPropName="GetActiveUserRows" msprop:Generator_UserRelationName="FK_ActiveUser_ToTable" msprop:Generator_RelationVarName="relationFK_ActiveUser_ToTable" msprop:Generator_UserParentTable="User" msprop:Generator_ParentPropName="UserRow" />
+      <msdata:Relationship name="FK_ActiveUser_ToTable" msdata:parent="User" msdata:child="ActiveUser" msdata:parentkey="Id" msdata:childkey="Id" msprop:Generator_UserChildTable="ActiveUser" msprop:Generator_ChildPropName="GetActiveUserRows" msprop:Generator_UserRelationName="FK_ActiveUser_ToTable" msprop:Generator_ParentPropName="UserRow" msprop:Generator_RelationVarName="relationFK_ActiveUser_ToTable" msprop:Generator_UserParentTable="User" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
