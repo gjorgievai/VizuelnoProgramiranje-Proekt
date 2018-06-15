@@ -13,7 +13,7 @@ namespace MusicGame
 {
     public partial class Login : Form
     {
-        public SqlConnection connection = new SqlConnection("Data Source=USER-PC;Initial Catalog=MusicDataBase;Integrated Security=True");
+        public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
         public SqlCommand command = new SqlCommand();
         DataSet dataSet = new DataSet();
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -33,6 +33,8 @@ namespace MusicGame
             datagridUser.DataSource = dataSet.Tables[0];
             for (int i = 0; i < datagridUser.Rows.Count - 1; i++)
             {
+
+
                 int id = Int32.Parse(datagridUser.Rows[i].Cells[0].Value.ToString());
                 string username = datagridUser.Rows[i].Cells[1].Value.ToString();
                 int score = Int32.Parse(datagridUser.Rows[i].Cells[2].Value.ToString());
