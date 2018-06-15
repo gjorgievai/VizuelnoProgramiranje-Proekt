@@ -251,7 +251,7 @@ namespace MusicGame
                 points -= 15;
                 pbPoints.Value = points;
             }
-            
+
             lbScore.Text = string.Format("Score:{0}",points);
             lblPoeni.Text = points.ToString();
         }
@@ -283,6 +283,7 @@ namespace MusicGame
             else
             {
                 timer.Stop();
+
             }
             
         }
@@ -333,7 +334,18 @@ namespace MusicGame
         
 
         }
+        public void updateDataBase()
+        {
+            SqlConnection connection1 = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
 
+            SqlCommand command1 = new SqlCommand("UPDATE [User] SET [Score]='" + points + "' WHERE [Id]='"+login.ActiveUser.User.UserId+"'", connection1);
+            DataSet dataSet1 = new DataSet();
+            SqlDataAdapter adapter1 = new SqlDataAdapter(command);
+            
+            adapter1.Fill(dataSet1);
+            datagrid1.DataSource = dataSet1.Tables[0];
+
+        }
        
     }
 }
