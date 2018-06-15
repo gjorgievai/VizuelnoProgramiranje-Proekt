@@ -23,7 +23,7 @@ namespace MusicGame
         public SqlCommand command = new SqlCommand();
         DataSet dataSet = new DataSet();
         SqlDataAdapter adapter = new SqlDataAdapter();
-        List<Song> songs { get; set; }
+        public List<Song> songs { get; set; }
         public string currentSongPlaying { get; set; }
         public List<string> btnNames { get; set; }
         public List<string> usedNames;
@@ -36,14 +36,12 @@ namespace MusicGame
 
         public GameForm()
         {
-            
-            btnNames = new List<string> { "You", "Inner City Blues", "Trouble Man",
-            "I Wish", "Sir Duke", "Superstition", "Signed, Sealed, Delivered I'm Yours",
-                "Boogie on Reggae Woman","For Once in My Life", "Living for the City",
-            "Master Blaster (Jammin')"};
-            usedNames = new List<string>();
             InitializeComponent();
             songs = new List<Song>();
+            btnNames = new List<string>();
+            usedNames = new List<string>();
+            DataBind();
+           
             lblLevel.Text = string.Format("Level:{0}", levels);
             Login login = new Login();
             
@@ -205,8 +203,8 @@ namespace MusicGame
                 }
                 else {
                     timer.Stop();
-                    login.ActiveUser.User.Score = points;
-                    lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+                   
+                    lbScore.Text = string.Format("Score:{0}", points);
 
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
@@ -224,8 +222,8 @@ namespace MusicGame
                 else
                 {
                     timer.Stop();
-                    login.ActiveUser.User.Score = points;
-                    lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+                    
+                    lbScore.Text = string.Format("Score:{0}", points);
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
                 }
@@ -240,9 +238,8 @@ namespace MusicGame
                 else
                 {
                     timer.Stop();
-                    login.ActiveUser.User.Score = points;
                     
-                    lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+                    lbScore.Text = string.Format("Score:{0}", points);
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
                 }
@@ -254,7 +251,8 @@ namespace MusicGame
                 points -= 15;
                 pbPoints.Value = points;
             }
-            lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+            
+            lbScore.Text = string.Format("Score:{0}",points);
             lblPoeni.Text = points.ToString();
         }
 
@@ -272,8 +270,8 @@ namespace MusicGame
             {
                 lblPoeni.Text = points.ToString();
                 timer.Stop();
-                login.ActiveUser.User.Score = points;
-                lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+             
+                lbScore.Text = string.Format("Score:{0}", points);
                 MessageBox.Show("You misses 10 songs!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
                 Close();
             }
@@ -296,11 +294,8 @@ namespace MusicGame
                 label1.Text = string.Format("0{0}:{1}", minutes, seconds);
                 if(seconds==0 && minutes == 0)
                 {
-                   
-
-
-                    login.ActiveUser.User.Score = points;
-                    lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+                    
+                    lbScore.Text = string.Format("Score:{0}", points);
                     MessageBox.Show("TIME'S UP!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
                     
                     Close();
@@ -318,6 +313,7 @@ namespace MusicGame
             adapter.SelectCommand = new SqlCommand("SELECT * FROM [Song]", connection);
             adapter.Fill(dataSet);
 
+
             datagrid.DataSource = dataSet.Tables[0];
             for (int i = 0; i < datagrid.Rows.Count - 1; i++)
             {
@@ -329,9 +325,12 @@ namespace MusicGame
                 int year = Int32.Parse(datagrid.Rows[i].Cells[2].Value.ToString());
                 song = new Song(id, name, year, artist);
                 songs.Add(song);
+                btnNames.Add(name.Substring(0, name.Length - 4));
+
 
             }
-           
+
+        
 
         }
 
