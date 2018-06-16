@@ -37,29 +37,21 @@
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(39, 57);
+            this.tbUserName.Location = new System.Drawing.Point(71, 56);
+            this.tbUserName.Multiline = true;
             this.tbUserName.Name = "tbUserName";
-
-            this.tbUserName.Size = new System.Drawing.Size(221, 20);
-            this.tbUserName.Size = new System.Drawing.Size(177, 20);
-
+            this.tbUserName.Size = new System.Drawing.Size(144, 28);
             this.tbUserName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-
-            this.label1.Location = new System.Drawing.Point(39, 38);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(68, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 25);
-
+            this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Username";
+            this.label1.Text = "Username:";
             // 
             // btnLogin
             // 
@@ -69,10 +61,9 @@
             this.btnLogin.Size = new System.Drawing.Size(178, 23);
 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(39, 83);
+            this.btnLogin.Location = new System.Drawing.Point(105, 90);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(199, 38);
-
+            this.btnLogin.Size = new System.Drawing.Size(72, 29);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
