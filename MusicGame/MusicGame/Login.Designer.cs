@@ -39,23 +39,41 @@
             // 
             this.tbUserName.Location = new System.Drawing.Point(39, 57);
             this.tbUserName.Name = "tbUserName";
+<<<<<<< HEAD
             this.tbUserName.Size = new System.Drawing.Size(221, 20);
+=======
+            this.tbUserName.Size = new System.Drawing.Size(177, 20);
+>>>>>>> parent of 8a35cd7... SignIn form added!
             this.tbUserName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(39, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
+=======
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(34, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 25);
+>>>>>>> parent of 8a35cd7... SignIn form added!
             this.label1.TabIndex = 1;
             this.label1.Text = "Username";
             // 
             // btnLogin
             // 
+<<<<<<< HEAD
             this.btnLogin.Location = new System.Drawing.Point(39, 98);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(178, 23);
+=======
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(39, 83);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(199, 38);
+>>>>>>> parent of 8a35cd7... SignIn form added!
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
