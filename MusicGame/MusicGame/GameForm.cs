@@ -212,7 +212,7 @@ namespace MusicGame
                 else {
                     timer.Stop();
                    
-                    lbScore.Text = string.Format("Score:{0}", points);
+                    lbScore.Text = string.Format("Score:{0}", activeUser.Score);
 
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
@@ -231,7 +231,7 @@ namespace MusicGame
                 {
                     timer.Stop();
                     
-                    lbScore.Text = string.Format("Score:{0}", points);
+                    lbScore.Text = string.Format("Score:{0}", activeUser.Score);
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
                 }
@@ -247,7 +247,7 @@ namespace MusicGame
                 {
                     timer.Stop();
                     
-                    lbScore.Text = string.Format("Score:{0}", points);
+                    lbScore.Text = string.Format("Score:{0}", activeUser.Score);
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
                 }
@@ -279,7 +279,7 @@ namespace MusicGame
                 lblPoeni.Text = points.ToString();
                 timer.Stop();
              
-                lbScore.Text = string.Format("Score:{0}", points);
+                lbScore.Text = string.Format("Score:{0}", activeUser.Score);
                 MessageBox.Show("You misses 10 songs!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
                 Close();
             }
@@ -304,7 +304,7 @@ namespace MusicGame
                 if(seconds==0 && minutes == 0)
                 {
                     
-                    lbScore.Text = string.Format("Score:{0}", points);
+                    lbScore.Text = string.Format("Score:{0}", activeUser.Score);
                     MessageBox.Show("TIME'S UP!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
                     
                     Close();
