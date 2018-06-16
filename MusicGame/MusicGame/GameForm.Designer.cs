@@ -40,6 +40,7 @@
             this.pbPoints = new System.Windows.Forms.ProgressBar();
             this.datagrid = new System.Windows.Forms.DataGridView();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.lblLevel = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
             this.lbScore = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -114,10 +115,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(458, 9);
+            this.label1.Location = new System.Drawing.Point(500, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 17);
+            this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Game Time Left";
             // 
@@ -132,7 +132,7 @@
             // datagrid
             // 
             this.datagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagrid.Location = new System.Drawing.Point(22, 195);
+            this.datagrid.Location = new System.Drawing.Point(22, 28);
             this.datagrid.Name = "datagrid";
             this.datagrid.Size = new System.Drawing.Size(84, 53);
             this.datagrid.TabIndex = 9;
@@ -143,23 +143,30 @@
             this.timer.Enabled = true;
             this.timer.Interval = 1000;
             // 
+            // lblLevel
+            // 
+            this.lblLevel.AutoSize = true;
+            this.lblLevel.Location = new System.Drawing.Point(512, 50);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(36, 13);
+            this.lblLevel.TabIndex = 10;
+            this.lblLevel.Text = "Level:";
+            // 
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbUsername.Location = new System.Drawing.Point(12, 9);
+            this.lbUsername.Location = new System.Drawing.Point(451, 68);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(68, 15);
+            this.lbUsername.Size = new System.Drawing.Size(58, 13);
             this.lbUsername.TabIndex = 11;
             this.lbUsername.Text = "Username:";
             // 
             // lbScore
             // 
             this.lbScore.AutoSize = true;
-            this.lbScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbScore.Location = new System.Drawing.Point(12, 38);
+            this.lbScore.Location = new System.Drawing.Point(454, 87);
             this.lbScore.Name = "lbScore";
-            this.lbScore.Size = new System.Drawing.Size(42, 15);
+            this.lbScore.Size = new System.Drawing.Size(38, 13);
             this.lbScore.TabIndex = 12;
             this.lbScore.Text = "Score:";
             // 
@@ -192,7 +199,7 @@
             // datagrid1
             // 
             this.datagrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagrid1.Location = new System.Drawing.Point(22, 263);
+            this.datagrid1.Location = new System.Drawing.Point(22, 115);
             this.datagrid1.Name = "datagrid1";
             this.datagrid1.Size = new System.Drawing.Size(84, 63);
             this.datagrid1.TabIndex = 16;
@@ -209,6 +216,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbScore);
             this.Controls.Add(this.lbUsername);
+            this.Controls.Add(this.lblLevel);
             this.Controls.Add(this.datagrid);
             this.Controls.Add(this.pbPoints);
             this.Controls.Add(this.label1);
@@ -242,6 +250,7 @@
         private System.Windows.Forms.ProgressBar pbPoints;
         private System.Windows.Forms.DataGridView datagrid;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label lblLevel;
         private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.Label lbScore;
         private System.Windows.Forms.Label label2;

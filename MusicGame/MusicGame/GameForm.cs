@@ -16,18 +16,13 @@ namespace MusicGame
     {
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         Random r = new Random();
-
-        SignIn signIn = new SignIn();
         Login login = new Login();
-
         User activeUser { get; set; }
         public Song song;
-
         public SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|MusicGameDb.mdf;Integrated Security=True");
         public SqlCommand command = new SqlCommand();
         DataSet dataSet = new DataSet();
         SqlDataAdapter adapter = new SqlDataAdapter();
-
         public List<Song> songs { get; set; }
         public string currentSongPlaying { get; set; }
         public List<string> btnNames { get; set; }
@@ -46,8 +41,8 @@ namespace MusicGame
             btnNames = new List<string>();
             usedNames = new List<string>();
             DataBind();
-
-            //lblLevel.Text = string.Format("Level:{0}", levels);
+           
+            lblLevel.Text = string.Format("Level:{0}", levels);
             Login login = new Login();
             
                 //Check Commit and Push - Ana!
@@ -55,25 +50,17 @@ namespace MusicGame
 
         private void GameForm_Load(object sender, EventArgs e)
         {
-            SignIn signIn = new SignIn();
-            DialogResult resultSignIn = signIn.ShowDialog();
-            if(resultSignIn == DialogResult.OK)
+            
+            if (login.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                DialogResult dialog = MessageBox.Show("Good job! You're in! Please log in now!", "LogIn", MessageBoxButtons.OK);
-                if(dialog == DialogResult.OK)
-                {
-                    Login login = new Login();
-                    if (login.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        lbUsername.Text = string.Format("Username:{0}", login.ActiveUser.User.UserName);
-                        lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
-                        playSong();
-                        refreshButtonNames();
-                        timer.Tick += new EventHandler(timer_Tick);
-                    }
+                lbUsername.Text = string.Format("Username:{0}", login.ActiveUser.User.UserName);
+                lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+                playSong();
+                refreshButtonNames();
+                timer.Tick += new EventHandler(timer_Tick);
+            }
+           
 
-                }
-            }  
         }
 
         public void playSong()
@@ -84,6 +71,13 @@ namespace MusicGame
             player.URL = currentSongPlaying;
         }
 
+        private void clearButtons()
+        {
+            foreach (Button b in this.Controls.OfType<Button>())
+            {
+                b.Text = "";
+            }
+        }
 
         private void refreshButtonNames()
         {
@@ -150,7 +144,7 @@ namespace MusicGame
                     levels++;
                 }
 
-                //updatePoints();
+                updatePoints();
                 player.controls.stop();
                 refreshGame();
             }
