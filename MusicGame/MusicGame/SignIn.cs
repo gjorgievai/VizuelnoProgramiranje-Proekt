@@ -16,7 +16,7 @@ namespace MusicGame
  
         public SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|MusicGameDb.mdf;Integrated Security=True");
         public SqlDataAdapter adapter = new SqlDataAdapter();
-        public DataSet dataSet = new DataSet();
+        public MusicDataDataSet1 dataSet1 = new MusicDataDataSet1();
         public UserActive active { get; set; }
         public SignIn()
         {
@@ -39,11 +39,17 @@ namespace MusicGame
         private void btnSignin_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+            connection.Open();
+            int rows = dataSet1.Tables["User"].Rows.Count;
+            active = new UserActive(new User(tbUsername.Text, 0));
             
             SqlCommand command ;
-            command = new SqlCommand("INSERT INTO [User] (UserName,Score) VALUES ('"+tbUsername.Text+ "',0)", connection);
-            active = new UserActive(new User(tbUsername.Text, 0));
-            connection.Open();
+            command = new SqlCommand("INSERT INTO [dbo].[User] ([UserName], [Score]) VALUES (@UserName,@Score)", connection);
+            command.Parameters.Add("@UserName", SqlDbType.Text).Value = tbUsername.Text;
+            command.Parameters.Add("@Score",SqlDbType.Int).Value=0;
+            adapter.SelectCommand = command;
+            MusicDataDataSet1 musicdataset = new MusicDataDataSet1();
+            adapter.Fill(musicdataset);
             command.ExecuteNonQuery();
             connection.Close();
            

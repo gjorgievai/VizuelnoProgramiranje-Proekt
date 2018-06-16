@@ -14,7 +14,6 @@ namespace MusicGame
         public int Score { get; set; }
         public User(string username, int score)
         {
-            
             UserName = username;
             Score = score;
         }
