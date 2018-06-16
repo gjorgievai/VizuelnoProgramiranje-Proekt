@@ -40,16 +40,15 @@ namespace MusicGame
         {
             DialogResult = DialogResult.OK;
             connection.Open();
-            int rows = dataSet1.Tables["User"].Rows.Count;
+        
             active = new UserActive(new User(tbUsername.Text, 0));
             
             SqlCommand command ;
-            command = new SqlCommand("INSERT INTO [dbo].[User] ([UserName], [Score]) VALUES (@UserName,@Score)", connection);
+            command = new SqlCommand("INSERT INTO [User] ([UserName], [Score]) VALUES (@UserName,@Score)", connection);
             command.Parameters.Add("@UserName", SqlDbType.Text).Value = tbUsername.Text;
             command.Parameters.Add("@Score",SqlDbType.Int).Value=0;
-            adapter.SelectCommand = command;
-            MusicDataDataSet1 musicdataset = new MusicDataDataSet1();
-            adapter.Fill(musicdataset);
+ 
+           
             command.ExecuteNonQuery();
             connection.Close();
            
