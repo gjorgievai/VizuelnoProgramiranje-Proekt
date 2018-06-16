@@ -13,7 +13,7 @@ namespace MusicGame
 {
     public partial class Login : Form
     {
-        public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
+        public SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|MusicBase.mdf;Integrated Security=True");
         public SqlCommand command = new SqlCommand();
         DataSet dataSet = new DataSet();
         SqlDataAdapter adapter = new SqlDataAdapter();
