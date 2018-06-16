@@ -52,42 +52,7 @@ namespace MusicGame
                 }
                 else
                 {
-                    DialogResult = System.Windows.Forms.DialogResult.Cancel;
-                }
-            }
-        }
-
-        private void Login_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                adapter.SelectCommand = new SqlCommand("SELECT * FROM [User]", connection);
-                adapter.Fill(dataSet);
-
-                datagridUser.DataSource = dataSet.Tables[0];
-                for (int i = 0; i < datagridUser.Rows.Count - 1; i++)
-                {
-
-
-                    int id = Int32.Parse(datagridUser.Rows[i].Cells[0].Value.ToString());
-                    string username = datagridUser.Rows[i].Cells[1].Value.ToString();
-                    int score = Int32.Parse(datagridUser.Rows[i].Cells[2].Value.ToString());
-                    User user1 = new User(id, username, score);
-                    users.Add(user1);
-
-                }
-                foreach (User user in users)
-                {
-                    if (user.UserName == tbUserName.Text)
-                    {
-                        ActiveUser = new UserActive(user);
-                        DialogResult = System.Windows.Forms.DialogResult.OK;
-                        Close();
-                    }
-                    else
-                    {
-                        DialogResult = System.Windows.Forms.DialogResult.Cancel;
-                    }
+                    
                 }
             }
         }
