@@ -12,7 +12,7 @@ namespace MusicGame
         public int UserId { get; set; }
         public string UserName { get; set; }
         public int Score { get; set; }
-        public User(string username, int score)
+        public User(int id,string username, int score)
         {
             UserName = username;
             Score = score;

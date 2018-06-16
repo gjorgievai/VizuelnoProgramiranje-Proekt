@@ -13,7 +13,7 @@ namespace MusicGame
 {
     public partial class Login : Form
     {
-        public SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|MusicGameDb.mdf;Integrated Security=True");
+        public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
         public SqlCommand command = new SqlCommand();
         DataSet dataSet = new DataSet();
         SqlDataAdapter adapter = new SqlDataAdapter();
@@ -50,10 +50,21 @@ namespace MusicGame
                     DialogResult = System.Windows.Forms.DialogResult.OK;
                     Close();
                 }
-                else
-                {
-                    
-                }
+                
+            }
+        }
+
+        
+
+        private void btnSignUp_Click_1(object sender, EventArgs e)
+        {
+            SignUp sign = new SignUp();
+            if (sign.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+                ActiveUser = new UserActive(sign.user);
+                DialogResult = DialogResult.OK;
+                Close();
             }
         }
     }
