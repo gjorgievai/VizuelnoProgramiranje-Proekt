@@ -13,8 +13,11 @@ namespace MusicGame
 {
     public partial class SignIn : Form
     {
+ 
         public SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|MusicGameDb.mdf;Integrated Security=True");
-
+        public SqlDataAdapter adapter = new SqlDataAdapter();
+        public DataSet dataSet = new DataSet();
+        public UserActive active { get; set; }
         public SignIn()
         {
             InitializeComponent();
@@ -36,26 +39,15 @@ namespace MusicGame
         private void btnSignin_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-           
-            SqlCommand command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandText = "INSERT INTO [User] VALUES (@UserName, @Score)";
-            command.Parameters.AddWithValue("@UserName", tbUsername.Text);
-            command.Parameters.AddWithValue("@Score", 0);
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch(Exception err)
-            {
-                DialogResult dialog = MessageBox.Show(err.Message);
-            }
-            finally
-            {
-                connection.Close();
-            }
             
+            SqlCommand command ;
+            command = new SqlCommand("INSERT INTO [User] (UserName,Score) VALUES ('"+tbUsername.Text+ "',0)", connection);
+            active = new UserActive(new User(tbUsername.Text, 0));
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+           
+
         }
     }
 }

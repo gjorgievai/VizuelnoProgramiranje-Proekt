@@ -38,7 +38,7 @@ namespace MusicGame
                 int id = Int32.Parse(datagridUser.Rows[i].Cells[0].Value.ToString());
                 string username = datagridUser.Rows[i].Cells[1].Value.ToString();
                 int score = Int32.Parse(datagridUser.Rows[i].Cells[2].Value.ToString());
-                User user1 = new User(id, username, score);
+                User user1 = new User(username, score);
                 users.Add(user1);
 
             }
@@ -50,10 +50,7 @@ namespace MusicGame
                     DialogResult = System.Windows.Forms.DialogResult.OK;
                     Close();
                 }
-                else
-                {
-                    
-                }
+                
             }
         }
     }

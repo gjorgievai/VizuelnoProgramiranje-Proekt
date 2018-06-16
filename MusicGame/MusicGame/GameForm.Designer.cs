@@ -46,6 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblPoeni = new System.Windows.Forms.Label();
             this.datagrid1 = new System.Windows.Forms.DataGridView();
+            this.lblPoints = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid1)).BeginInit();
             this.SuspendLayout();
@@ -198,11 +199,20 @@
             this.datagrid1.TabIndex = 16;
             this.datagrid1.Visible = false;
             // 
+            // lblPoints
+            // 
+            this.lblPoints.AutoSize = true;
+            this.lblPoints.Location = new System.Drawing.Point(516, 403);
+            this.lblPoints.Name = "lblPoints";
+            this.lblPoints.Size = new System.Drawing.Size(0, 13);
+            this.lblPoints.TabIndex = 17;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 439);
+            this.Controls.Add(this.lblPoints);
             this.Controls.Add(this.datagrid1);
             this.Controls.Add(this.lblPoeni);
             this.Controls.Add(this.label3);
@@ -248,6 +258,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblPoeni;
         private System.Windows.Forms.DataGridView datagrid1;
+        private System.Windows.Forms.Label lblPoints;
     }
 }
 
