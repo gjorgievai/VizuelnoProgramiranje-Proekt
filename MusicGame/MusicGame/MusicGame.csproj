@@ -90,12 +90,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SignIn.Designer.cs">
-      <DependentUpon>SignIn.cs</DependentUpon>
-    </Compile>
     <Compile Include="Song.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserActive.cs" />
@@ -114,9 +108,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SignIn.resx">
-      <DependentUpon>SignIn.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="MusicDataDataSet1.xsc">
       <DependentUpon>MusicDataDataSet1.xsd</DependentUpon>
     </None>
@@ -174,6 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MusicGameDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MusicGameDb_log.ldf">
+      <DependentUpon>MusicGameDb.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
