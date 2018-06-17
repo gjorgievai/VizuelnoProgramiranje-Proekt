@@ -45,6 +45,7 @@ namespace MusicGame
 
             }
             int id = users.Count + 1;
+            
             user = new User(id, tbUserName.Text, 0);
             command = new SqlCommand("INSERT INTO [User] ([Id],[UserName],[Score]) VALUES (" + id + ",'" + tbUserName.Text + "',0)", connection);
             connection.Open();

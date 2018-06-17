@@ -52,6 +52,7 @@ namespace MusicGame
             
             if (login.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                activeUser = login.ActiveUser.User;
                 lbUsername.Text = string.Format("Username:{0}", login.ActiveUser.User.UserName);
                 lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                 playSong();
@@ -60,6 +61,7 @@ namespace MusicGame
             }
             else if (signUp.ShowDialog()==System.Windows.Forms.DialogResult.OK)
             {
+                activeUser = signUp.user;
                 lbUsername.Text = string.Format("Username:{0}", login.ActiveUser.User.UserName);
                 lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                 playSong();
@@ -212,7 +214,7 @@ namespace MusicGame
                 else {
                     timer.Stop();
                    
-                    lbScore.Text = string.Format("Score:{0}", activeUser.Score);
+                    lbScore.Text = string.Format("Score:{0}", points);
 
                     MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
                     Close();
@@ -259,7 +261,7 @@ namespace MusicGame
                 points -= 15;
                 pbPoints.Value = points;
             }
-
+            updateDataBase();
             lbScore.Text = string.Format("Score:{0}",points);
             lblPoeni.Text = points.ToString();
         }
@@ -278,7 +280,7 @@ namespace MusicGame
             {
                 lblPoeni.Text = points.ToString();
                 timer.Stop();
-             
+                updateDataBase();
                 lbScore.Text = string.Format("Score:{0}", activeUser.Score);
                 MessageBox.Show("You misses 10 songs!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
                 Close();
@@ -291,7 +293,7 @@ namespace MusicGame
             else
             {
                 timer.Stop();
-
+                updateDataBase();
             }
             
         }
@@ -344,7 +346,7 @@ namespace MusicGame
         }
         public void updateDataBase()
         {
-            SqlCommand command1 = new SqlCommand("UPDATE [User] SET [Score]='" + points + "' WHERE [Id]='"+login.ActiveUser.User.UserId+"'", connection);
+            SqlCommand command1 = new SqlCommand("UPDATE [User] SET [Score]="+points +" WHERE [Id]="+activeUser.UserId, connection);
             connection.Open();
             command1.ExecuteNonQuery();
             connection.Close();
