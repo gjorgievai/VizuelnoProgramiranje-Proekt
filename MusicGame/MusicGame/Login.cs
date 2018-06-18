@@ -19,6 +19,7 @@ namespace MusicGame
         SqlDataAdapter adapter = new SqlDataAdapter();
         public UserActive ActiveUser;
         public List<User> users;
+        public bool flag = false;
         public Login()
         {
             InitializeComponent();
@@ -42,16 +43,9 @@ namespace MusicGame
                 users.Add(user1);
 
             }
-            foreach (User user in users)
-            {
-                if (user.UserName == tbUserName.Text)
-                {
-                    ActiveUser = new UserActive(user);
-                    DialogResult = System.Windows.Forms.DialogResult.OK;
-                    Close();
-                }
-                
-            }
+            check();
+            
+
         }
 
         
@@ -67,5 +61,28 @@ namespace MusicGame
                 Close();
             }
         }
+        public void check()
+        {
+            foreach (User user in users)
+            {
+                if (user.UserName == tbUserName.Text)
+                {
+                    flag = true;
+                    ActiveUser = new UserActive(user);
+                    DialogResult = System.Windows.Forms.DialogResult.OK;
+                    Close();
+                }
+            }
+            if(!flag)
+            {
+                MessageBox.Show("Username is not correct", "Attention", MessageBoxButtons.OK);
+                if(DialogResult==DialogResult.OK)
+                {
+                    Close();
+                }
+            }
+        }
+
+        
     }
 }

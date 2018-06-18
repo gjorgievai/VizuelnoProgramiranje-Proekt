@@ -18,9 +18,12 @@ namespace MusicGame
         DataSet dataSet = new DataSet();
         SqlDataAdapter adapter = new SqlDataAdapter();
         public User user;
+        public List<User> usersInBase { get; set; }
+        public bool flag = false;
         public SignUp()
         {
             InitializeComponent();
+            usersInBase = new List<User>();
         }
 
 
@@ -29,7 +32,7 @@ namespace MusicGame
         {
             adapter.SelectCommand = new SqlCommand("SELECT * FROM [User]", connection);
             adapter.Fill(dataSet);
-            List<User> users = new List<User>();
+            
 
             dataGridView1.DataSource = dataSet.Tables[0];
             for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
@@ -39,20 +42,49 @@ namespace MusicGame
                 int id1 = Int32.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString());
                 string name = dataGridView1.Rows[i].Cells[1].Value.ToString();
                 int score = Int32.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
-                users.Add(new User(id1, name, score));
+           
+                usersInBase.Add(new User(id1, name, score));
 
 
 
             }
-            int id = users.Count + 1;
+            bool rez = check();
+            if (rez==false)
+            {
+
+
+                int id = usersInBase.Count + 1;
+
+                user = new User(id, tbUserName.Text, 0);
+                command = new SqlCommand("INSERT INTO [User] ([Id],[UserName],[Score]) VALUES (" + id + ",'" + tbUserName.Text + "',0)", connection);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+                DialogResult = DialogResult.OK;
+            }
+          
+
+        }
+        public bool check()
+        {
+            foreach (User user in usersInBase)
+            {
+                if (user.UserName.Equals(tbUserName.Text))
+                {
+                    flag = true;
+                }
+
+            }
+            if (flag)
+            {
+                MessageBox.Show("User exist","Exist",MessageBoxButtons.OK);
+                return true;
+                
+            }
+            return false;
             
-            user = new User(id, tbUserName.Text, 0);
-            command = new SqlCommand("INSERT INTO [User] ([Id],[UserName],[Score]) VALUES (" + id + ",'" + tbUserName.Text + "',0)", connection);
-            connection.Open();
-            command.ExecuteNonQuery();
-            connection.Close();
-            DialogResult = DialogResult.OK;
+
 
         }
     }
-    }
+}
