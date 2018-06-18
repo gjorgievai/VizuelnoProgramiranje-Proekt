@@ -16,7 +16,7 @@ namespace MusicGame
     {
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         Random r = new Random();
-        Login login = new Login();
+        public Login login = new Login();
         User activeUser { get; set; }
         public Song song;
         public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
@@ -27,12 +27,12 @@ namespace MusicGame
         public string currentSongPlaying { get; set; }
         public List<string> btnNames { get; set; }
         public List<string> usedNames;
+        int misses=0;
         int points = 0;
         public int seconds = 30;
         public int minutes = 2;
-        public int misses = 0;
-        public int levels = 1;
-        public int hits = 0;
+       
+        public int lives = 3;
         public SignUp signUp = new SignUp();
         public GameForm()
         {
@@ -40,9 +40,7 @@ namespace MusicGame
             songs = new List<Song>();
             btnNames = new List<string>();
             usedNames = new List<string>();
-            DataBind();
- 
-            Login login = new Login();
+         
             
                 //Check Commit and Push - Ana!
         }
@@ -145,24 +143,37 @@ namespace MusicGame
 
         private void guessSong(string currentSongPlaying, string btnSong, Button b)
         {
+            bool flag = false;
+            int count = 0;
+            
             string songPlaying = currentSongPlaying.Substring(0, currentSongPlaying.Length - 4);
             if (songPlaying.Equals(btnSong))
             {
-                hits++;
-                if(hits==10)
-                {
-                    levels++;
-                }
 
+               
                 updatePoints();
                 player.controls.stop();
+                misses = 0;
                 refreshGame();
             }
             else
             {
                 misses++;
+                if (misses == 4) {
+                    points = points / 2;
+                    lives--;
+                    misses = 0;
+                    if(lives==0)
+                    {
+                        if (MessageBox.Show("Do you want to play again?", "GAME OVER", MessageBoxButtons.YesNo)== System.Windows.Forms.DialogResult.Yes)
+                        {
+                            Application.Restart();
+                        }
+                    }
+                }
                 b.Text = "";
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -207,52 +218,17 @@ namespace MusicGame
             if (pbGuessSongTime.Value < 30)
             {
                 points += 20;
-                if (points <= 100)
-                {
-                    pbPoints.Value = points;
-                }
-                else {
-                    timer.Stop();
-                   
-                    lbScore.Text = string.Format("Score:{0}", points);
-
-                    MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
-                    Close();
-                }
                 
-
             }
             else if (pbGuessSongTime.Value > 30 && pbGuessSongTime.Value < 65)
             {
                 points += 10;
-                if (points <= 100)
-                {
-                    pbPoints.Value = points;
-                }
-                else
-                {
-                    timer.Stop();
-                    
-                    lbScore.Text = string.Format("Score:{0}", activeUser.Score);
-                    MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
-                    Close();
-                }
+                
             }
             else if (pbGuessSongTime.Value > 65 && pbGuessSongTime.Value < 100)
             {
                 points += 3;
-                if (points <= 100)
-                {
-                    pbPoints.Value = points;
-                }
-                else
-                {
-                    timer.Stop();
-                    
-                    lbScore.Text = string.Format("Score:{0}", activeUser.Score);
-                    MessageBox.Show("YOU WIN! YOU PASS ALL SONGS", "WINNER", MessageBoxButtons.OK);
-                    Close();
-                }
+                
             }
 
             else if (pbGuessSongTime.Value == 100)
@@ -276,15 +252,7 @@ namespace MusicGame
             {
                 refreshGame();
             }
-            if (misses == 10)
-            {
-                lblPoeni.Text = points.ToString();
-                timer.Stop();
-                updateDataBase();
-                lbScore.Text = string.Format("Score:{0}", activeUser.Score);
-                MessageBox.Show("You misses 10 songs!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
-                Close();
-            }
+            
             if (seconds > 0 || minutes > 0)
             {
                 CheckTimer();
