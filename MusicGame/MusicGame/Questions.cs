@@ -16,19 +16,26 @@ namespace MusicGame
         public GameForm game { get; set; }
         List<int> years = new List<int>();
         Random r = new Random();
-        public Questions()
+        public Questions(Song current)
         {
-            game = new GameForm();
-            song = game.current;
+            InitializeComponent();
+            song = current;
             years.Add(song.Year);
             years.Add(song.Year - 2);
             years.Add(song.Year - 6);
+        }
+        public Questions()
+        {
             InitializeComponent();
+            years.Add(song.Year);
+            years.Add(song.Year - 2);
+            years.Add(song.Year - 6);
+           
         }
 
         private void Questions_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(game.currentSongPlaying);
+            
             yearRandom();
         }
 

@@ -28,6 +28,7 @@ namespace MusicGame
         public List<string> btnNames { get; set; }
         public List<string> usedNames;
         public Song current { get; set; }
+        public int highScore = 0;
         int misses=0;
         int points = 0;
         public int seconds = 30;
@@ -57,6 +58,7 @@ namespace MusicGame
                 lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
                 playSong();
                 refreshButtonNames();
+                getHighScore();
                 timer.Tick += new EventHandler(timer_Tick);
             }
             else if (signUp.ShowDialog()==System.Windows.Forms.DialogResult.OK)
@@ -155,8 +157,8 @@ namespace MusicGame
 
                 hits++;
                 if (hits == 7) {
-                    Questions question = new Questions();
-                    question.song = current;
+                    Questions question = new Questions(current);
+                    
                     question.ShowDialog();
 
                 }
@@ -299,6 +301,7 @@ namespace MusicGame
         public void DataBind()
         {
             adapter.SelectCommand = new SqlCommand("SELECT * FROM [Song]", connection);
+            dataSet = new DataSet();
             adapter.Fill(dataSet);
 
 
@@ -328,6 +331,29 @@ namespace MusicGame
             command1.ExecuteNonQuery();
             connection.Close();
 
+        }
+        public void getHighScore()
+        {
+            adapter.SelectCommand = new SqlCommand("SELECT * FROM [User]", connection);
+            dataSet = new DataSet();
+            adapter.Fill(dataSet);
+            highScore = 0;
+            List<int> scores = new List<int>();
+            datagrid1.DataSource = dataSet.Tables[0];
+            for (int i = 0; i < datagrid1.Rows.Count - 1; i++)
+            {
+
+                int score = Int32.Parse(datagrid1.Rows[i].Cells[2].Value.ToString());
+                scores.Add(score);
+            }
+            foreach (int i in scores)
+            {
+                if (i > highScore)
+                {
+                    highScore = i;
+                }
+            }
+            lblHighScore.Text = string.Format("HighScore:{0}", highScore);
         }
        
     }

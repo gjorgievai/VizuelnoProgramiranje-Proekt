@@ -47,6 +47,7 @@
             this.lblPoeni = new System.Windows.Forms.Label();
             this.datagrid1 = new System.Windows.Forms.DataGridView();
             this.lblPoints = new System.Windows.Forms.Label();
+            this.lblHighScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid1)).BeginInit();
             this.SuspendLayout();
@@ -207,11 +208,21 @@
             this.lblPoints.Size = new System.Drawing.Size(0, 13);
             this.lblPoints.TabIndex = 17;
             // 
+            // lblHighScore
+            // 
+            this.lblHighScore.AutoSize = true;
+            this.lblHighScore.Location = new System.Drawing.Point(13, 67);
+            this.lblHighScore.Name = "lblHighScore";
+            this.lblHighScore.Size = new System.Drawing.Size(60, 13);
+            this.lblHighScore.TabIndex = 18;
+            this.lblHighScore.Text = "HighScore:";
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 439);
+            this.Controls.Add(this.lblHighScore);
             this.Controls.Add(this.lblPoints);
             this.Controls.Add(this.datagrid1);
             this.Controls.Add(this.lblPoeni);
@@ -259,6 +270,7 @@
         private System.Windows.Forms.Label lblPoeni;
         private System.Windows.Forms.DataGridView datagrid1;
         private System.Windows.Forms.Label lblPoints;
+        private System.Windows.Forms.Label lblHighScore;
     }
 }
 
