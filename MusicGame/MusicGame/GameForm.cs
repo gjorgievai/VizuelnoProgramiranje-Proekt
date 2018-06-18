@@ -18,7 +18,7 @@ namespace MusicGame
         Random r = new Random();
         public Login login = new Login();
         User activeUser { get; set; }
-        public Song song;
+        public Song song { get; set; }
         public SqlConnection connection = new SqlConnection("Data Source=IVANAKAJTAZOVA\\TEW_SQLEXPRESS;Initial Catalog=MusicDataBase;Integrated Security=True");
         public SqlCommand command = new SqlCommand();
         DataSet dataSet = new DataSet();
@@ -27,11 +27,12 @@ namespace MusicGame
         public string currentSongPlaying { get; set; }
         public List<string> btnNames { get; set; }
         public List<string> usedNames;
+        public Song current { get; set; }
         int misses=0;
         int points = 0;
         public int seconds = 30;
         public int minutes = 2;
-       
+        public int hits = 0;
         public int lives = 3;
         public SignUp signUp = new SignUp();
         public GameForm()
@@ -40,6 +41,7 @@ namespace MusicGame
             songs = new List<Song>();
             btnNames = new List<string>();
             usedNames = new List<string>();
+            current = new Song();
          
             
                 //Check Commit and Push - Ana!
@@ -75,6 +77,7 @@ namespace MusicGame
         {
             DataBind();
             int index = r.Next(songs.Count);
+            current = new Song(songs[index].SongId, songs[index].NameSong, songs[index].Year, songs[index].Artist);
             currentSongPlaying = songs[index].NameSong;
             player.URL = currentSongPlaying;
         }
@@ -150,7 +153,13 @@ namespace MusicGame
             if (songPlaying.Equals(btnSong))
             {
 
-               
+                hits++;
+                if (hits == 7) {
+                    Questions question = new Questions();
+                    question.song = current;
+                    question.ShowDialog();
+
+                }
                 updatePoints();
                 player.controls.stop();
                 misses = 0;

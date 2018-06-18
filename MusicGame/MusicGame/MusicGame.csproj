@@ -88,11 +88,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MusicDataDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="NewGame.cs">
+    <Compile Include="Questions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewGame.Designer.cs">
-      <DependentUpon>NewGame.cs</DependentUpon>
+    <Compile Include="Questions.Designer.cs">
+      <DependentUpon>Questions.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +120,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Questions.resx">
+      <DependentUpon>Questions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>

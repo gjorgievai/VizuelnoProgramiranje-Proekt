@@ -12,7 +12,7 @@ namespace MusicGame
         public string NameSong { get; set; }
         public int Year { get; set; }
         public string Artist { get; set; }
-
+        public Song() { }
         public Song(int id, string name, int year ,string artist)
         {
             SongId = id;
