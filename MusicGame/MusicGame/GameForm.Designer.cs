@@ -223,7 +223,7 @@
             // 
             this.lblHighScore.AutoSize = true;
             this.lblHighScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHighScore.Location = new System.Drawing.Point(13, 67);
+            this.lblHighScore.Location = new System.Drawing.Point(12, 68);
             this.lblHighScore.Name = "lblHighScore";
             this.lblHighScore.Size = new System.Drawing.Size(70, 13);
             this.lblHighScore.TabIndex = 18;
@@ -233,7 +233,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 87);
+            this.label4.Location = new System.Drawing.Point(12, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 15);
             this.label4.TabIndex = 19;

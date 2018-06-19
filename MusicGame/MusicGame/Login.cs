@@ -75,7 +75,7 @@ namespace MusicGame
             }
             if(!flag)
             {
-                MessageBox.Show("Username is not correct", "Attention", MessageBoxButtons.OK);
+                MessageBox.Show("Username is not correct!", "Attention!", MessageBoxButtons.OK);
                 if(DialogResult==DialogResult.OK)
                 {
                     Close();
