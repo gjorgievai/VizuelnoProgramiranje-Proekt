@@ -37,36 +37,39 @@
             // 
             // btnSign
             // 
-            this.btnSign.Location = new System.Drawing.Point(34, 106);
+            this.btnSign.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSign.Location = new System.Drawing.Point(34, 89);
             this.btnSign.Name = "btnSign";
-            this.btnSign.Size = new System.Drawing.Size(173, 23);
+            this.btnSign.Size = new System.Drawing.Size(214, 35);
             this.btnSign.TabIndex = 0;
-            this.btnSign.Text = "SignUp";
+            this.btnSign.Text = "Sign Up";
             this.btnSign.UseVisualStyleBackColor = true;
             this.btnSign.Click += new System.EventHandler(this.btnSign_Click_1);
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(34, 74);
+            this.tbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserName.Location = new System.Drawing.Point(34, 53);
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(189, 20);
+            this.tbUserName.Size = new System.Drawing.Size(214, 30);
             this.tbUserName.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 55);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(214, 25);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Enter username:";
+            this.label1.Text = "How would we call you:";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(173, 11);
+            this.dataGridView1.Location = new System.Drawing.Point(210, 1);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(104, 57);
+            this.dataGridView1.Size = new System.Drawing.Size(67, 21);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.Visible = false;
             // 
@@ -80,7 +83,8 @@
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.btnSign);
             this.Name = "SignUp";
-            this.Text = "SignUp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sign Up";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

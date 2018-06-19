@@ -48,62 +48,70 @@
             this.datagrid1 = new System.Windows.Forms.DataGridView();
             this.lblPoints = new System.Windows.Forms.Label();
             this.lblHighScore = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(176, 38);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(227, 43);
             this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.Highlight;
             this.button2.Location = new System.Drawing.Point(176, 87);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(227, 43);
             this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.SystemColors.Highlight;
             this.button3.Location = new System.Drawing.Point(176, 136);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(227, 43);
             this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.SystemColors.Highlight;
             this.button4.Location = new System.Drawing.Point(176, 185);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(227, 43);
             this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.SystemColors.Highlight;
             this.button5.Location = new System.Drawing.Point(176, 234);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(227, 43);
             this.button5.TabIndex = 4;
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.SystemColors.Highlight;
             this.button6.Location = new System.Drawing.Point(176, 283);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(227, 43);
             this.button6.TabIndex = 5;
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // pbGuessSongTime
@@ -125,7 +133,7 @@
             // 
             // pbPoints
             // 
-            this.pbPoints.Location = new System.Drawing.Point(78, 395);
+            this.pbPoints.Location = new System.Drawing.Point(78, 384);
             this.pbPoints.Maximum = 1000;
             this.pbPoints.Name = "pbPoints";
             this.pbPoints.Size = new System.Drawing.Size(431, 32);
@@ -148,38 +156,41 @@
             // lbUsername
             // 
             this.lbUsername.AutoSize = true;
-            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbUsername.BackColor = System.Drawing.SystemColors.Control;
+            this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbUsername.Location = new System.Drawing.Point(12, 9);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(68, 15);
-            this.lbUsername.TabIndex = 11;
+            this.lbUsername.Size = new System.Drawing.Size(77, 15);
+            this.lbUsername.TabIndex = 15;
             this.lbUsername.Text = "Username:";
             // 
             // lbScore
             // 
             this.lbScore.AutoSize = true;
-            this.lbScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbScore.Location = new System.Drawing.Point(12, 38);
             this.lbScore.Name = "lbScore";
-            this.lbScore.Size = new System.Drawing.Size(42, 15);
+            this.lbScore.Size = new System.Drawing.Size(48, 15);
             this.lbScore.TabIndex = 12;
             this.lbScore.Text = "Score:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(39, 350);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Time:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 404);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(31, 404);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Points:";
             // 
@@ -211,17 +222,29 @@
             // lblHighScore
             // 
             this.lblHighScore.AutoSize = true;
+            this.lblHighScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHighScore.Location = new System.Drawing.Point(13, 67);
             this.lblHighScore.Name = "lblHighScore";
-            this.lblHighScore.Size = new System.Drawing.Size(60, 13);
+            this.lblHighScore.Size = new System.Drawing.Size(70, 13);
             this.lblHighScore.TabIndex = 18;
             this.lblHighScore.Text = "HighScore:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 15);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Points:";
             // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 439);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblHighScore);
             this.Controls.Add(this.lblPoints);
             this.Controls.Add(this.datagrid1);
@@ -241,6 +264,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "GameForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MusicGame";
             this.Load += new System.EventHandler(this.GameForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datagrid)).EndInit();
@@ -271,6 +295,7 @@
         private System.Windows.Forms.DataGridView datagrid1;
         private System.Windows.Forms.Label lblPoints;
         private System.Windows.Forms.Label lblHighScore;
+        private System.Windows.Forms.Label label4;
     }
 }
 

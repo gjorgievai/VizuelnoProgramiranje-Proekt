@@ -35,8 +35,8 @@ namespace MusicGame
 
         private void Questions_Load(object sender, EventArgs e)
         {
-            
             yearRandom();
+           
         }
 
         public void yearRandom()
@@ -49,6 +49,44 @@ namespace MusicGame
                 b.Text = year.ToString();
                 used.Add(year);
                 years.Remove(year);
+            }
+        }
+
+        private void btnSong1_Click(object sender, EventArgs e)
+        {
+            if (btnSong1.Text == song.Year.ToString())
+            {
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                Close();
+            }
+
+        }
+
+        private void btnSong2_Click(object sender, EventArgs e)
+        {
+            if (btnSong2.Text == song.Year.ToString())
+            {
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                Close();
+            }
+
+        }
+
+        private void btnSong3_Click(object sender, EventArgs e)
+        {
+            if (btnSong3.Text == song.Year.ToString())
+            {
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                Close();
             }
         }
     }

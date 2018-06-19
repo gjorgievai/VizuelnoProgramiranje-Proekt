@@ -41,25 +41,28 @@
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(39, 57);
+            this.tbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUserName.Location = new System.Drawing.Point(29, 57);
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(221, 20);
+            this.tbUserName.Size = new System.Drawing.Size(244, 30);
             this.tbUserName.TabIndex = 0;
-             // 
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 38);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(34, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(110, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username";
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(39, 98);
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(29, 98);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(119, 23);
+            this.btnLogin.Size = new System.Drawing.Size(115, 37);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -76,9 +79,10 @@
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(177, 97);
+            this.btnSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Location = new System.Drawing.Point(162, 97);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(111, 23);
+            this.btnSignUp.Size = new System.Drawing.Size(111, 38);
             this.btnSignUp.TabIndex = 4;
             this.btnSignUp.Text = "SignUp";
             this.btnSignUp.UseVisualStyleBackColor = true;
@@ -99,6 +103,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbUserName);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.datagridUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

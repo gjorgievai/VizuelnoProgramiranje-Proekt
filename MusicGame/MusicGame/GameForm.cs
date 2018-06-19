@@ -55,10 +55,11 @@ namespace MusicGame
             {
                 activeUser = login.ActiveUser.User;
                 lbUsername.Text = string.Format("Username:{0}", login.ActiveUser.User.UserName);
-                lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+                lbScore.Text = string.Format("Your Score:{0}", login.ActiveUser.User.Score);
+                DataBind();
+                getHighScore();
                 playSong();
                 refreshButtonNames();
-                getHighScore();
                 timer.Tick += new EventHandler(timer_Tick);
             }
             else if (signUp.ShowDialog()==System.Windows.Forms.DialogResult.OK)
@@ -66,6 +67,9 @@ namespace MusicGame
                 activeUser = signUp.user;
                 lbUsername.Text = string.Format("Username:{0}", login.ActiveUser.User.UserName);
                 lbScore.Text = string.Format("Score:{0}", login.ActiveUser.User.Score);
+                label4.Text = string.Format("Points:{0}", points);
+                getHighScore();
+                DataBind();
                 playSong();
                 refreshButtonNames();
                 timer.Tick += new EventHandler(timer_Tick);
@@ -77,7 +81,7 @@ namespace MusicGame
 
         public void playSong()
         {
-            DataBind();
+
             int index = r.Next(songs.Count);
             current = new Song(songs[index].SongId, songs[index].NameSong, songs[index].Year, songs[index].Artist);
             currentSongPlaying = songs[index].NameSong;
@@ -158,8 +162,11 @@ namespace MusicGame
                 hits++;
                 if (hits == 7) {
                     Questions question = new Questions(current);
-                    
-                    question.ShowDialog();
+                    hits = 0;
+                    if (question.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        points += 50;
+                    }
 
                 }
                 updatePoints();
@@ -179,6 +186,11 @@ namespace MusicGame
                         if (MessageBox.Show("Do you want to play again?", "GAME OVER", MessageBoxButtons.YesNo)== System.Windows.Forms.DialogResult.Yes)
                         {
                             Application.Restart();
+                            getHighScore();
+                        }
+                        else
+                        {
+                            Close();
                         }
                     }
                 }
@@ -249,7 +261,7 @@ namespace MusicGame
                 pbPoints.Value = points;
             }
             updateDataBase();
-            lbScore.Text = string.Format("Score:{0}",points);
+            label4.Text = string.Format("Points:{0}", points);
             lblPoeni.Text = points.ToString();
         }
 
@@ -284,8 +296,8 @@ namespace MusicGame
                 label1.Text = string.Format("0{0}:{1}", minutes, seconds);
                 if(seconds==0 && minutes == 0)
                 {
-                    
-                    lbScore.Text = string.Format("Score:{0}", activeUser.Score);
+
+                    label4.Text = string.Format("Points:{0}", points);
                     MessageBox.Show("TIME'S UP!! GAME OVER", "GAME OVER", MessageBoxButtons.OK);
                     
                     Close();
@@ -355,6 +367,7 @@ namespace MusicGame
             }
             lblHighScore.Text = string.Format("HighScore:{0}", highScore);
         }
-       
+
+        
     }
 }
