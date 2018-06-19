@@ -77,7 +77,7 @@ namespace MusicGame
             }
             if (flag)
             {
-                MessageBox.Show("User exist","Exist",MessageBoxButtons.OK);
+                MessageBox.Show("This username is already used! Try with another one!","Username already exist",MessageBoxButtons.OK);
                 return true;
                 
             }
